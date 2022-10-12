@@ -29,12 +29,12 @@ const onInputChange = (input) => {
 <template>
 <!-- <Status /> -->
 <!-- <Settings /> -->
-<!-- <Vue3ToggleButton v-model:isActive="isActive" :handleColor="'#cc00cc'"> </Vue3ToggleButton>
+<Vue3ToggleButton v-model:isActive="isActive" :handleColor="'#cc00cc'"> </Vue3ToggleButton>
 <div class="mt-10">
   <div class="w-[150px] h-[150px] border-2 rounded-full">
     <div class="w-full h-full bg-blue-200 rounded-full circle-fill" :style="`--percent: ${percent}%`"></div>
   </div>
-</div> -->
+</div>
 <input
   :value="data"
   class="input"
