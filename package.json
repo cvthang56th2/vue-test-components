@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "simple-keyboard": "^3.4.172",
     "vue": "^3.2.37",
     "vue3-toggle-button": "^1.0.3"

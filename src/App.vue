@@ -5,6 +5,7 @@ import { Vue3ToggleButton } from 'vue3-toggle-button'
 import '../node_modules/vue3-toggle-button/dist/style.css'
 import { ref } from 'vue'
 import SimpleKeyboard from "./components/SimpleKeyboard.vue";
+import AppTable from './components/AppTable.vue'
 
 const isActive = ref(false)
 const percent = ref(0)
@@ -24,6 +25,25 @@ const onKeyPress = (button) => {
 const onInputChange = (input) => {
   data.value = input.target.value;
 }
+const headers = Array.from(Array(10).keys()).map((e, i) => ({
+  label: `col ${i}`,
+  field: `field${i}`,
+  class: i === 0 ? 'w-1/2' : '',
+  sortAble: true
+}))
+const items = Array.from(Array(5).keys()).map((e, i) => ({
+  ...Array.from(Array(10).keys()).reduce((resultObj:any, e, _i) => {
+    resultObj[`field${_i}`] = `F${_i} - Value${i}`
+    return resultObj
+  }, {}),
+  id: `id${i}`
+}))
+const onCheckItems = (items: any) => {
+  console.log(items)
+}
+const onRowClicked = (item: any) => {
+  console.log(item)
+}
 </script>
 
 <template>
@@ -42,6 +62,13 @@ const onInputChange = (input) => {
   placeholder="Tap on the virtual keyboard to start"
 >
 <SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="data"/>
+<AppTable
+  isShowCheck
+  :headers="headers"
+  :items="items"
+  @onCheckItems="onCheckItems"
+  @onRowClicked="onRowClicked"
+/>
 </template>
 
 <style scoped>
